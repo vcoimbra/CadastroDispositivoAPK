@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.victorcoimbra.cadastrodispositivo.criarUsuarioActivity">
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_login"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
+    <EditText
+        android:layout_below="@+id/tvLogin"
+        android:id="@+id/etLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_criar"
+        />
+
+    <TextView
+        android:layout_below="@+id/etLogin"
+        android:id="@+id/tvSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_senha"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
+    <EditText
+        android:layout_below="@+id/tvSenha"
+        android:id="@+id/etSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_senhaCriar"
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:layout_below="@+id/etSenha"
+        android:id="@+id/tvSenha2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/senhaVerificacao"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
+    <EditText
+        android:layout_below="@+id/tvSenha2"
+        android:id="@+id/etSenha2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_senhaVerificacao"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:layout_below="@+id/etSenha2"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="criar"
+        android:text="@string/botao_criar"
+        />
+</RelativeLayout>

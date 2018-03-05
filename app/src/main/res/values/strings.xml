@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CadastroDispositivo</string>
+    <string name="txt_login">Login</string>
+    <string name="hint_login">Tip your login</string>
+    <string name="txt_senha">Password</string>
+    <string name="hint_senha">Tip your password</string>
+    <string name="botao_login">Conect</string>
+    <string name="txt_criar">Create new User</string>
+    <string name="hint_criar">Tip your new Login</string>
+    <string name="hint_senhaCriar">Tip your new password</string>
+    <string name="botao_criar">Create</string>
+    <string name="senhaVerificacao">Password Verification</string>
+    <string name="hint_senhaVerificacao">Tip your new password again</string>
+    <string name="problema_aplicacao">SORYY! Application Problem!</string>
+    <string name="usuario_invalido">Invalid User</string>
+    <string name="usuario_existente">This user already exists</string>
+    <string name="text_botao_dispositivo">Gadget</string>
+    <string name="text_botao_sobre">About</string>
+    <string name="text_botao_desconectar">Disconnect</string>
+</resources>
