@@ -20,15 +20,14 @@ import retrofit2.Response;
 public class DispositivoActivity extends AppCompatActivity {
 
     DispositivoAdapter adapter;
+    RecyclerView recyclerView;
 
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispositivo);
-        RecyclerView recyclerView = findViewById(R.id.rvDispositivo);
-        adapter = new DispositivoAdapter(buscarDispositivos(), this);
-        adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(adapter);
+        recyclerView = findViewById(R.id.rvDispositivo);
+        buscarDispositivos();
     }
 
     private List<Dispositivo> buscarDispositivos(){
@@ -40,6 +39,9 @@ public class DispositivoActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<List<Dispositivo>> call, Response<List<Dispositivo>> response) {
                         dispositivos.addAll(response.body());
+                        adapter = new DispositivoAdapter(dispositivos, DispositivoActivity.this);
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(adapter);
                     }
 
                     @Override
