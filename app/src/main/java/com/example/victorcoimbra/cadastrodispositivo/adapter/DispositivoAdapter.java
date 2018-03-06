@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.victorcoimbra.cadastrodispositivo.R;
 import com.example.victorcoimbra.cadastrodispositivo.model.Dispositivo;
@@ -20,9 +21,11 @@ import java.util.List;
 public class DispositivoAdapter extends Adapter{
 
     List<Dispositivo> dispositivos;
+    Context context;
 
-    public DispositivoAdapter(List<Dispositivo> dispositivos){
+    public DispositivoAdapter(List<Dispositivo> dispositivos, Context context){
         this.dispositivos = dispositivos;
+        this.context = context;
     }
 
     @Override
@@ -40,6 +43,13 @@ public class DispositivoAdapter extends Adapter{
         Dispositivo dispositivo = dispositivos.get(position);
         holder.uuid.setText(dispositivo.getUuid());
         holder.modelo.setText(dispositivo.getModelo());
+
+        holder.btnExcluir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(context, "Clicou no botão excluir", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

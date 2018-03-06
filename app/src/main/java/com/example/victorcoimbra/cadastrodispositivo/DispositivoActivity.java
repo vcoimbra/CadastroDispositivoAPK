@@ -26,7 +26,7 @@ public class DispositivoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispositivo);
         RecyclerView recyclerView = findViewById(R.id.rvDispositivo);
-        adapter = new DispositivoAdapter(buscarDispositivos());
+        adapter = new DispositivoAdapter(buscarDispositivos(), this);
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
     }
@@ -49,5 +49,13 @@ public class DispositivoActivity extends AppCompatActivity {
                     }
                 });
         return dispositivos;
+    }
+
+    public void adicionarDispositivo(){
+
+    }
+
+    public void sair(){
+        finish();
     }
 }

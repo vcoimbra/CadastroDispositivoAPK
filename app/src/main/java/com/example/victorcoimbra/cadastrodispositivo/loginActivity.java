@@ -35,19 +35,6 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void logar(View view){
-
-       if(isAutenticado()){
-           if(cbManterConectado.isChecked()){
-               manterConectado();
-           }
-           Intent intent = new Intent(this, MainActivity.class);
-           startActivity(intent);
-
-           finish();
-       }
-    }
-
-    public boolean isAutenticado(){
         final RetornoLogin retornoLogin = new RetornoLogin();
 
         String login = etLogin.getText().toString();
@@ -59,7 +46,17 @@ public class loginActivity extends AppCompatActivity {
                 .enqueue(new Callback<RetornoLogin>() {
                     @Override
                     public void onResponse(Call<RetornoLogin> call, Response<RetornoLogin> response) {
-                        retornoLogin.setValor(response.body().getValor());
+                        if(response.body().getValor() != null && response.body().getValor().equals(0)){
+                            if(cbManterConectado.isChecked()){
+                                //manterConectado();
+                            }
+                            Intent intent = new Intent(loginActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+                            finish();
+                        }else{
+                            Toast.makeText(loginActivity.this, R.string.usuario_invalido, Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override
@@ -68,12 +65,6 @@ public class loginActivity extends AppCompatActivity {
 
                     }
                 });
-        if(retornoLogin.getValor() != null && retornoLogin.getValor().equals(0)){
-            return true;
-        }else{
-            Toast.makeText(loginActivity.this, R.string.usuario_invalido, Toast.LENGTH_LONG).show();
-            return false;
-        }
     }
 
     public void criar(View view){

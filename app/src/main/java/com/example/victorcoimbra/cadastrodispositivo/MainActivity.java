@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void desconectar(){
+    public void desconectar(View view){
 
         LoginDAO loginDAO = new LoginDAO(this);
 

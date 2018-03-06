@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -24,4 +25,8 @@ public interface DispositivoAPI {
 
     @GET("/dispositivo")
     Call<List<Dispositivo>> findAll();
+
+    @DELETE("/dispositivo/uuid/{uuid}")
+    Call<Void> deletarDipositivo(@Path("uuid") String uuid);
+
 }

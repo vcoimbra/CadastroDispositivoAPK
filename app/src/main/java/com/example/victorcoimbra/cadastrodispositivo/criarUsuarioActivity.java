@@ -59,6 +59,18 @@ public class criarUsuarioActivity extends AppCompatActivity {
 
                     retornoLogin.setValor(response.body().getValor());
 
+                    if(retornoLogin.getValor() != null){
+                        if(retornoLogin.getValor().equals(EnumRetornoLoginAPI.USUARIO_CADASTRADO.getValor())){
+                            Intent intent = new Intent(criarUsuarioActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else if(retornoLogin.getValor().equals(EnumRetornoLoginAPI.USUARIO_EXISTENTE.getValor())){
+                            Toast.makeText(criarUsuarioActivity.this, R.string.usuario_existente, Toast.LENGTH_LONG).show();
+                        }
+                    }else{
+                        Toast.makeText(criarUsuarioActivity.this, R.string.problema_aplicacao, Toast.LENGTH_LONG).show();
+                    }
+
                 }
 
                 @Override
@@ -66,18 +78,6 @@ public class criarUsuarioActivity extends AppCompatActivity {
                     Toast.makeText(criarUsuarioActivity.this, R.string.problema_aplicacao, Toast.LENGTH_LONG).show();
                 }
             });
-
-            if(retornoLogin.getValor() != null){
-                if(retornoLogin.getValor().equals(EnumRetornoLoginAPI.USUARIO_CADASTRADO.getValor())){
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else if(retornoLogin.getValor().equals(EnumRetornoLoginAPI.USUARIO_EXISTENTE.getValor())){
-                    Toast.makeText(criarUsuarioActivity.this, R.string.usuario_existente, Toast.LENGTH_LONG).show();
-                }
-            }else{
-                Toast.makeText(criarUsuarioActivity.this, R.string.problema_aplicacao, Toast.LENGTH_LONG).show();
-            }
         }
     }
 }

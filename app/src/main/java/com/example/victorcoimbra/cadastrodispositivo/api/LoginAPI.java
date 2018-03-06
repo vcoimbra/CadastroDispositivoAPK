@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 
 public interface LoginAPI {
 
-    @GET("/login/usuario/{usuario}")
+    @GET("/login/usuario")
     Call<RetornoLogin> findLogin(@Query("usuario") String usuario, @Query("senha") String senha);
 
     @POST("/login")

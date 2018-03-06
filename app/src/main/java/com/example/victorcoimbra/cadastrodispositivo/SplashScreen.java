@@ -23,9 +23,6 @@ import retrofit2.Response;
 public class SplashScreen extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 3500;
-    private final String KEY_APP_PREFERENCES = "loginDispositivo";
-    private final String KEY_LOGIN = "login";
-    private final String KEY_SENHA = "senha";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,22 +41,21 @@ public class SplashScreen extends AppCompatActivity {
             iv.clearAnimation();
             iv.startAnimation(anim);
         }
+        //Login login;
+        //login = verificarLoginCadastrado();
+
+       // if(login != null){
+       //     if (isAutenticado(login)){
+       //         Intent intent = new Intent(SplashScreen.this,
+       //                 MainActivity.class);
+       //         startActivity(intent);
+       //         SplashScreen.this.finish();
+       //     }
+       // }
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Login login;
-                login = verificarLoginCadastrado();
-
-                if(login != null){
-                   if (isAutenticado(login)){
-                       Intent intent = new Intent(SplashScreen.this,
-                               MainActivity.class);
-                       intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                       startActivity(intent);
-                       SplashScreen.this.finish();
-                   }
-                }
 
                 Intent intent = new Intent(SplashScreen.this,
                         loginActivity.class);
